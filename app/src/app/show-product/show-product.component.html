@@ -1,0 +1,28 @@
+<div class="container">
+   <div class="row">
+      <div class="col-md-6 d-flex justify-content-center">
+         <img [src]="earring.image">
+      </div>
+      <div class="col-md-6">
+         <div class="product-name">
+         <h1>{{earring.name}}</h1>
+         </div>
+         <div class="product-price">
+            <p>PRICE:<span>Rs{{earring.price}}</span></p>
+         </div>
+         <div class="product-desc">
+            <p>{{earring.description}}</p>
+         </div>
+         <div class="available">
+            In Stock.
+         </div>
+         <div class="product-buttons d-flex justify-content-between">
+            <button class="btn btn-dark">ADD TO WISHLIST  <i class="fas fa-heart mt-1"></i></button>
+            <button class="btn btn-dark cart">ADD TO CART <i class="fas fa-shopping-cart"></i></button>
+         </div>
+      </div>
+
+   </div>
+
+</div>
+<app-footer></app-footer>

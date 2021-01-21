@@ -1,0 +1,32 @@
+.row{
+    margin-top:50px;
+}
+
+.product-name h1{
+    font-family: 'Dancing Script', cursive;
+    font-size:50px;
+    
+}
+.product-price{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:20px;
+    font-weight:550;
+
+}
+.product-desc{
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+.available{
+    font-size:22px;
+    color:#318a16;
+}
+.product-buttons{
+    margin-top: 25px;
+}
+.cart{
+    margin-right: 120px;
+}
+.product-price>p>span{
+    color:red;
+}

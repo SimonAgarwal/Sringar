@@ -1,0 +1,60 @@
+    
+    <div class="container">
+    <div class="row d-flex justify-content-between">
+      
+       <!-- <div class="col-12 col-md-4 col-sm-6 my-5 my-md-0 product d-flex justify-content-center" 
+         [ngStyle]="{'background-image':'url('+product.image+')','background-size':'300px 340px','background-repeat': 'no-repeat','background-position': 'center','margin-bottom':'10px'}" *ngFor="let product of products"></div>-->
+    
+        
+         <div class="col-12 col-md-4 col-sm-6 product d-flex justify-content-center" 
+         *ngFor="let product of products">
+         <!--<div class="wishlist"><i class="fas fa-heart" (click)="wishlist()"></i></div>-->
+         <div class="product-details d-flex justify-content-between">
+            <a href="#" [routerLink]="['/products/earring/'+product._id]"> <p class="product-name">{{product.name}}</p></a>
+             <p class="product-price">Rs.{{product.price}}</p>
+            
+        </div>
+         
+        <div class="showBtn">
+            <button class="btn btn-light border p-0 mt-4"><p class="btn-text pt-2">ADD TO CART <i class="fas fa-shopping-cart"></i></p></button>
+        </div>
+        <div class="showBtn">
+            <button style="top:55%" class="btn btn-light border p-0 mt-4"><p class="btn-text pt-2">ADD TO WISHLIST <i class="fas fa-heart mt-1"></i></p></button>
+        </div>
+        
+        <a [routerLink]="['/products/earring/'+product._id]">
+        <div class="bg-image" [ngStyle]="{'background-image':'url('+product.image+')','background-size':'300px 340px','background-repeat': 'no-repeat','background-position': 'center','width':'320px'}"></div>
+            </a>
+        
+        </div>
+       
+
+        <!--<div class="col-12 col-md-4 my-5 my-md-0 product"></div>
+        <div class="col-12 col-md-4 my-5 my-md-0 product"></div>
+    
+        'width':'300px','height':'390px',(div)
+        [ngStyle]="{'width':'auto','height':'340px'}" (image)
+        'margin-top':'50px' (div)
+
+        <img class="image" [src]="product.image" >(if image not in background)
+    
+    -->
+
+        
+    </div>
+   <!-- <div class="row mt-5">
+        <div class="col-12 col-md-4 my-5 my-md-0"><img src="/assets/kurtis/e4.jpg"></div>
+        <div class="col-12 col-md-4 my-5 my-md-0"><img src="/assets/kurtis/e5.jpg"></div>
+        <div class="col-12 col-md-4 my-5 my-md-0"><img src="/assets/kurtis/e6.jpg"></div>
+        
+    </div>
+    <div class="row mt-5">
+        <div class="col-12 col-md-4"><img src="/assets/kurtis/e7.jpg"></div>
+        <div class="col-12 col-md-4"><img src="/assets/kurtis/e8.jpg"></div>
+        <div class="col-12 col-md-4"><img src="/assets/kurtis/e9.jpg"></div>
+        
+    </div>-->
+   
+</div>
+
+<app-footer></app-footer>

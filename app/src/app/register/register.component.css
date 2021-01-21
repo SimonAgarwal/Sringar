@@ -1,0 +1,27 @@
+form{
+    width:508px;
+    padding-top:22px;
+    padding-left:30px;
+    font-family: 'Dancing Script', cursive;
+    font-size:25px;
+}
+.border{
+    margin-top:60px;
+    width:550px;
+    height:560px;
+}
+h4{
+    text-align:center;
+    font-family: 'Dancing Script', cursive;
+}
+#register{
+    font-family: 'Dancing Script', cursive;
+    font-size:25px;
+    margin-top:20px;
+}
+#register a{
+    color:black;
+}
+input{
+    font-size:25px;
+}

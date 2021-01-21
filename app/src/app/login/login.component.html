@@ -1,0 +1,22 @@
+<div class="container d-flex justify-content-center">
+    <div class="border">
+
+    <form>
+        <h4>LOGIN</h4>
+        <div class="form-group">
+        <label>UserName:</label>
+        <input type="text" placeholder="UserName" class="form-control" [(ngModel)]="user.username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" class="form-control" required>
+            </div>
+            <button class="btn btn-dark" (click)="login()">LOGIN</button>
+    </form>
+    <div id="register" class="d-flex justify-content-between">
+        <p><a href="#" [routerLink]="['/register']">Don't have an account?</a></p>
+        <p><a href="#">Forgot Password?</a></p>
+    </div>
+    
+    </div>
+    </div>
