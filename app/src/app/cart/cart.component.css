@@ -1,0 +1,56 @@
+.item >.row{
+    height:150px;
+    width:100%;
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-size:30px;
+   
+    }
+.all{
+    margin-top:40px;
+}
+img{
+    height: 90%;
+    width:45%;
+}
+.price{
+    color:red;
+}
+h2{
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    font-size: 50px;
+}
+.bill{
+    border:1px #e3e2e1 solid;
+    height:60%;
+    font-family: 'Dancing Script', cursive;
+    padding-top:30px;
+    background-color: #ebebeb;
+}
+h4{
+text-align: center;
+font-size:30px;
+color:red;
+text-decoration: underline;
+}
+.amount{
+    padding-top:30px;
+    font-size:27px;
+    padding-left:10px;
+
+}
+#total{
+    color:red;
+}
+
+.buttons{
+    width:150px;
+    margin-top:15px;
+}
+.checkout{
+    margin-top:15px;
+    width:100%;
+}

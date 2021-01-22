@@ -18,11 +18,36 @@ router.get('/products',(req,res,next)=>{
 router.post("/cart",(req,res,next)=>{
     var product= {
         _id:req.body._id,
-        name:req.body.name,
-        price:req.body.price,
-        image:req.body.image
-    }
-    User.findOne({username:req.user.username},(err,user)=>{
+        }
+
+    products.findOne({_id:product._id},(err,product)=>{
+        if(err){
+            res.json({sucess:false,message:"Product could not be added"})
+        }
+        else if(product){
+            User.findOne({username:req.user.username},(error,user)=>{
+                if(error){
+                    res.send({message:"error"});
+                }
+                if(!user){
+                    res.send("login first");
+                }
+                else{
+                    user.cart.push(product);
+                    user.save();
+                    res.send({success:"true",message:"Added to Cart"});
+                }
+            })
+
+        }
+        else{
+            res.json({sucess:false,message:"Product could not be added"})
+        }
+    })
+
+
+
+    /*User.findOne({username:req.user.username},(err,user)=>{
         if(err){
             res.send({message:"error"});
         }
@@ -34,19 +59,21 @@ router.post("/cart",(req,res,next)=>{
             user.save();
             res.send({success:"true",message:"Added to Cart"});
         }
-    })
+    })*/
 
 })
 
-router.get("/cart",(req,res,next)=>{
-    console.log(req.user.username)
-User.findOne({username:req.user.username}).populate('cart').exec((err,user)=>{
+router.get("/:id/cart",(req,res,next)=>{
+    id=req.params.id;
+    console.log(id);
+    
+User.findOne({_id:id}).populate('cart').exec((err,user)=>{
     if(err){
         res.send(err);
     }
     else{
         console.log(user.cart);
-        res.send(user);
+        res.send(user.cart);
     }
 })
 
@@ -65,6 +92,8 @@ router.get('/products/:id',(req,res,next)=>{
         }
     })
 })
+
+
 
 module.exports=router;
 

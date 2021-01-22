@@ -46,7 +46,7 @@ router.post('/login', function(req, res, next) {
       if (!user) { return res.json({success:false,msg:'User Does Not Exist'}); }
       req.logIn(user, function(err) {
         if (err) { return res.send(err); }
-        return res.json({success:true,msg:'You Are Logged in'});
+        return res.json({success:true,msg:'You Are Logged in',user:user});
       });
     })(req, res, next);
   });

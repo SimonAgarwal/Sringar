@@ -9,6 +9,7 @@ import{users} from '../users';
 export class ServerService {
   url='http://localhost:3000';
   isAuth:boolean=false;
+  ActiveUser=undefined;
 
   constructor(private http:HttpClient) { }
 
@@ -30,6 +31,9 @@ export class ServerService {
 
   showEarring(id){
     return this.http.get(this.url+'/products/'+id,{responseType: 'text'});
+  }
+  getCartItems(id){
+    return this.http.get(this.url+'/'+id+'/cart',{responseType: 'text'});
   }
 
 }

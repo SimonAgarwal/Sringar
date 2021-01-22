@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private server:ServerService,private router:Router) { }
 
   ngOnInit(): void {
+    this.server.ActiveUser=undefined;
   }
 
 
@@ -32,6 +33,8 @@ export class LoginComponent implements OnInit {
       if(this.response.success==true){
         console.log("You Are Logged In");
         this.server.isAuth=true;
+        this.server.ActiveUser=this.response.user;
+        console.log(this.server.ActiveUser)
         this.router.navigate(['/products/earring']);
       }
       else{

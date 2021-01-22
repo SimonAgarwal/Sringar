@@ -22,6 +22,7 @@ this.server.logout().subscribe(res=>{
   this.response=JSON.parse(res);
   console.log(this.response)
   if(this.response.success){
+    this.server.ActiveUser=undefined;
     this.server.isAuth=false;
     console.log(this.response.message);
     this.router.navigate(['/login']);
@@ -32,6 +33,16 @@ this.server.logout().subscribe(res=>{
 
 })
 
+
+}
+userCart(){
+  
+  if(this.server.ActiveUser){
+    this.router.navigate(['/'+this.server.ActiveUser._id+'/cart'])
+  }
+  else{
+    this.router.navigate(['/login']);
+  }
 
 }
   

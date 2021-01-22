@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ShowProductComponent } from './show-product/show-product.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ShowProductComponent } from './show-product/show-product.component';
     LoginComponent,
     RegisterComponent,
     ShowProductComponent,
+    CartComponent,
    ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@
 
 }
 .navbar-brand{
-    font-size: 25px;
+    font-size: 30px;
 }
 h3{
     padding-top:10px;
@@ -26,4 +26,7 @@ h3{
     color:black
 }
 
+.nav-item{
+    padding-right:15px;
+}
 

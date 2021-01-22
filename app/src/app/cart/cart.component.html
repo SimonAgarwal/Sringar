@@ -1,0 +1,40 @@
+<div class="container">
+    <div>
+        <h2>{{server.ActiveUser.username}}'s Cart</h2>
+    </div>
+    
+    <div class="row">
+    <div class="all col-md-9">
+        <div *ngFor="let cart of cartItems" >
+            <div class="item">
+                <div class="row">
+                <div class="col-md-4"><img [src]="cart.image"></div>
+                <div class="col-md-5">
+                    <div>{{cart.name}}
+                        <div class="buttons d-flex justify-content-between">
+                            <button class="btn btn-dark"><i class="fas fa-heart mt-1"></i></button>
+                            <button class="btn btn-dark cart" (click)="removeElement(cart)"><i class="fas fa-minus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 price">Rs.{{cart.price}}</div>
+                </div>
+            <hr>
+            </div>
+        </div>
+            
+    </div>
+    <div class="col-md-3">
+        <div class="bill">
+        <h4>Order Summary</h4>
+        <div class="amount">
+            <p>Cart Total:Rs.{{cartAmount}}</p>
+            <p>Delivery:Rs.{{delivery}}</p>
+            <hr>
+            <p id="total">Amount:Rs.{{totalAmount}}</p>
+        </div>
+        </div>
+        <button class="btn btn-dark checkout">CHECKOUT</button>
+    </div>
+    </div>
+</div>
