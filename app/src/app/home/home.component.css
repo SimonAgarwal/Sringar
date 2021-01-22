@@ -1,0 +1,192 @@
+.images{
+    background:url(https://i.ibb.co/FWSn8S7/access7.jpg);
+   
+}
+.cont{
+    margin-top:50px;
+    padding-left:50px;
+    padding-right:50px;
+}
+div.images{
+   height:500px;
+   width:100%;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   -webkit-filter: blur(0px); /* Chrome, Safari, Opera */
+    filter: blur(0px);
+}
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    height:12%;
+    font-family: 'Dancing Script', cursive;
+    font-size:70px;
+    font-weight:900
+
+}
+.box>h1{
+    font-family: 'Dancing Script', cursive;
+    font-size:60px;
+    font-weight:900
+
+}
+.box{
+    width:350px;
+    height:200px;
+    background-color:white;
+    border:5px black solid;
+    opacity:0.75
+    
+}
+.outer-box{
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    height:12%;
+   
+    width:400px;
+    height:250px;
+    background-color: #888a8f;
+    border:7px black solid;
+    opacity: 0.75;
+
+}
+.box>div>p{
+    font-family: 'Source Sans Pro', sans-serif;
+
+    font-size:15px;
+    opacity:1;
+}
+
+
+  
+  .images>ul li { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 50s linear infinite; 
+  }
+  
+  .images>ul li:nth-child(1) { 
+    background-image: url(https://i.ibb.co/bNFjShm/access8.jpg) 
+  }
+  .images>ul> li:nth-child(2) { 
+    background-image: url(https://i.ibb.co/rv26zCT/access9.jpg);
+    animation-delay: 7s; 
+  }
+  .images>ul> li:nth-child(3) { 
+    background-image: url(https://i.ibb.co/n3jBb2S/access10.jpg);
+    animation-delay: 14s; 
+  }
+  .images>ul li:nth-child(4) { 
+    background-image: url(https://i.ibb.co/Snsf76z/access11.jpg);
+    animation-delay: 21s; 
+  }
+  .images>ul li:nth-child(5) { 
+    background-image: url(https://i.ibb.co/sKGgxjB/access12.jpg);
+    animation-delay: 28s; 
+  }
+  .images>ul li:nth-child(6) { 
+    background-image: url(https://i.ibb.co/mqSyF6w/access13.jpg);
+    animation-delay: 35s; 
+  }
+  .images>ul li:nth-child(7) { 
+    background-image: url(https://i.ibb.co/xmHpHXn/access14.jpg);
+    animation-delay: 42s; 
+  }
+  .images>ul li:nth-child(8) { 
+    background-image: url(https://i.ibb.co/M58jtd9/access15.jpg);
+    animation-delay: 49s; 
+  }
+  .images>ul li:nth-child(9) { 
+    background-image: url(https://i.ibb.co/ZcZwSQD/access16.jpg);
+    animation-delay: 56s; 
+  }
+
+
+  
+  @keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+  }
+  
+  /* Older browser support - .no-cssanimations class added by modernizr */
+  .no-cssanimations .images li {
+      opacity: 1;
+  }
+
+  .about{
+      text-align: center;
+      margin-top:50px;
+      font-family: 'Source Sans Pro', sans-serif;
+      margin-bottom: 50px;
+  }
+  .about>h3{
+    font-family: 'Dancing Script', cursive;
+    
+    font-size: 40px;
+
+  }
+  .product{
+    margin-top: 20px;
+      height:270px;
+      width:210px;
+     
+      background-repeat: no-repeat;
+   background-position: center;
+  
+   background-image:url('../../assets/earring2.jpg')
+  }
+  .container>h3{
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 50px;
+
+  }
+  .earring{
+      color:black;
+      height:100px;
+      width:130px;
+      border:4px black solid;
+      background-color:white;
+      opacity:0.8;
+  }
+  .earring>p{
+      margin-bottom: 0px;
+      font-size:20px;
+      font-weight: 600;
+  }
+  
+  

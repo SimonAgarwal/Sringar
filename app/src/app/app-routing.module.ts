@@ -6,12 +6,15 @@ import { KurtiComponent } from './kurti/kurti.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ShowProductComponent } from './show-product/show-product.component';
+import { AuthGuard } from './guards/auth.guard';
 
-const routes: Routes = [{path:'home',component:HomeComponent},
-                        {path:'products/earring',component:KurtiComponent},
+const routes: Routes = [{path: '', redirectTo: "/home",pathMatch: 'full'},
+                        {path:'home',component:HomeComponent},
+                        {path:'products/earring',component:KurtiComponent,},
                         {path:'login',component:LoginComponent},
                         {path:'register',component:RegisterComponent},
                         {path:'products/earring/:id',component:ShowProductComponent}];
+                        //canActivate:[AuthGuard] to apply guard
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

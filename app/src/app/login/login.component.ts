@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       if(this.response.success==true){
         console.log("You Are Logged In");
         this.server.isAuth=true;
-        this.router.navigate(['/kurti']);
+        this.router.navigate(['/products/earring']);
       }
       else{
         alert("Something went wrong !try again")
