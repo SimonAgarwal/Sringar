@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
+import { CartService } from '../services/cart.service';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import{earring} from '../earring';
 
@@ -15,7 +16,7 @@ export class ShowProductComponent implements OnInit {
   earring:earring
 
 
-  constructor(private server:ServerService,private router:Router,private activatedRoute: ActivatedRoute) {
+  constructor(private server:ServerService,private router:Router,private activatedRoute: ActivatedRoute,public cart:CartService) {
     this.activatedRoute.params.subscribe(params => {
       console.log(params);
       this.params=params;
@@ -32,5 +33,6 @@ export class ShowProductComponent implements OnInit {
     //get id object from route
     }
 
+   
 
 }

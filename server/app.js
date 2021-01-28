@@ -4,6 +4,7 @@ const mongoose=require("mongoose");
 const cors=require("cors");
 const passport=require('passport');
 const session=require("express-session");
+const cookieParser=require('cookie-parser');
 
 const config=require("./config/mongoose");
 mongoose.connect(config.database);
@@ -17,8 +18,12 @@ const app=express();
 const product=require("./routes/product");
 const authenticate=require("./routes/authenticate");
 
-app.use(cors());
+app.use(cors({
+	origin:['http://localhost:4200'],
+	credentials:true
+}));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(require("express-session")({
 	secret:"Anything",
 	resave:false,
@@ -28,7 +33,17 @@ app.use(require("express-session")({
 	require('./config/passport');
 	
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session({
+	name:'simon',
+	resave:false,
+	saveUninitialized:false,
+	secret:'simon',
+	cookie:{
+		maxAge:36000000,
+		httpOnly:false,
+		secure:false
+	}
+}));
 
 
 app.use("/",product);

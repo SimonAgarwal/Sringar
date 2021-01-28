@@ -25,7 +25,7 @@ h2{
 }
 .bill{
     border:1px #e3e2e1 solid;
-    height:60%;
+    height:300px;
     font-family: 'Dancing Script', cursive;
     padding-top:30px;
     background-color: #ebebeb;
@@ -49,8 +49,32 @@ text-decoration: underline;
 .buttons{
     width:150px;
     margin-top:15px;
+    
 }
 .checkout{
     margin-top:15px;
     width:100%;
+}
+.back{
+    width:80px;
+}
+.btn.btn-outline-dark{
+    border:0px;
+}
+.buttons>button>i{
+    font-size: 20px;
+}
+.empty{
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: 25px;
+    margin-top: 6%;
+    background-color: #dedede;
+    text-align: center;
+}
+
+
+.empty>div{
+    width:300px;
+    height: 150px;
+    padding-top: 30px;
 }

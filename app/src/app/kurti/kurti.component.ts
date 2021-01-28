@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
+import { CartService } from '../services/cart.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,13 +27,14 @@ export class KurtiComponent implements OnInit {
 products:any;
 response
 
-  constructor(private server:ServerService,private router:Router) { }
+  constructor(private server:ServerService,private router:Router,public cart:CartService) { }
 addedWish:String;
 
   ngOnInit(): void {
     this.server.earrings().subscribe(res=>{
       this.response=JSON.parse(res);
       this.products=this.response.products;
+      this.server.ActiveUser=this.response.user;
       console.log(this.products);
       
     })
@@ -40,5 +42,6 @@ addedWish:String;
   wishlist(){
     this.addedWish='iconWish';
   }
+  
 
 }

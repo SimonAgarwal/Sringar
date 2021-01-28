@@ -2,8 +2,16 @@
     <div>
         <h2>{{server.ActiveUser.username}}'s Cart</h2>
     </div>
+    <div class="d-flex justify-content-center">
+    <div class="empty d-flex justify-content-center align-items-center" *ngIf="isEmpty">
+        <div class="">
+            <p>Your Cart Is Empty</p>
+            <button class="btn btn-dark emptyCart" [routerLink]="['/products/earring']">ADD NOW</button>
+        </div>
+    </div>
+    </div>
     
-    <div class="row">
+    <div class="row" *ngIf="!isEmpty">
     <div class="all col-md-9">
         <div *ngFor="let cart of cartItems" >
             <div class="item">
@@ -12,8 +20,8 @@
                 <div class="col-md-5">
                     <div>{{cart.name}}
                         <div class="buttons d-flex justify-content-between">
-                            <button class="btn btn-dark"><i class="fas fa-heart mt-1"></i></button>
-                            <button class="btn btn-dark cart" (click)="removeElement(cart)"><i class="fas fa-minus"></i></button>
+                            <button class="btn btn-outline-dark"><i class="fas fa-heart mt-1"></i></button>
+                            <button class="btn btn-outline-dark cart" (click)="removeFromCart(cart)"><i class="fas fa-minus"></i></button>
                         </div>
                     </div>
                 </div>
@@ -37,4 +45,6 @@
         <button class="btn btn-dark checkout">CHECKOUT</button>
     </div>
     </div>
+    <button class="btn btn-outline-dark back" *ngIf="!isEmpty" [routerLink]="['/products/earring']"><i class="fas fa-arrow-left"></i></button>
+
 </div>

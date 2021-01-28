@@ -12,7 +12,9 @@ export class CartComponent implements OnInit {
   ActiveUser;
   response;
 params;
+isEmpty=false;
 cartItems=[];
+
 cartAmount:number=0;
 delivery:number=0;
 totalAmount;
@@ -30,26 +32,48 @@ totalAmount;
     //load cart
     this.server.getCartItems(this.params.id).subscribe(res=>{
       this.response=JSON.parse(res);
-      this.cartItems=this.response;
-   
-
+  this.cartItems=this.response;
+  console.log(this.cartItems)
+  if(this.cartItems.length==0){
+    this.isEmpty=true;
+    console.log(this.isEmpty); 
+  }
+  
+   else{
+this.isEmpty=false;
     //load total amount
-    for(let i=0;i<this.cartItems.length;i++)
+    this.cartAmount=0;
+for(let i=0;i<this.cartItems.length;i++)
     {
     this.cartAmount+=this.cartItems[i].price;
     }
 
     this.totalAmount=+this.cartAmount + +this.delivery;
     console.log(this.totalAmount)
+  }
       
     })
     
    }
 
-   removeElement(cart){
-     this.cartAmount=this.cartAmount-cart.price;
-     this.totalAmount=this.totalAmount-cart.price
-   }
+   
+  removeFromCart(product){
+    if(this.server.ActiveUser==undefined){
+      this.router.navigate(['/login']);
+    }
+    else{
+    this.server.removeFromCart(product).subscribe(res=>{
+      console.log(res);
+     
+      this.cartAmount=this.cartAmount-product.price;
+     this.totalAmount=this.totalAmount-product.price;
+     this.ngOnInit();
+     
+     
+    })
+  }
+  
+  }
 
 
 }

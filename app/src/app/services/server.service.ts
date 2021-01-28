@@ -9,7 +9,7 @@ import{users} from '../users';
 export class ServerService {
   url='http://localhost:3000';
   isAuth:boolean=false;
-  ActiveUser=undefined;
+  ActiveUser;
 
   constructor(private http:HttpClient) { }
 
@@ -18,7 +18,7 @@ export class ServerService {
   }
 
   login(user:users){
-    return this.http.post(this.url+'/login',user,{responseType: 'text'});
+    return this.http.post(this.url+'/login',user,{responseType: 'text',withCredentials:true});
   }
 
   logout(){
@@ -26,14 +26,21 @@ export class ServerService {
   }
 
   earrings(){
-    return this.http.get(this.url+'/products',{responseType: 'text'});
+    return this.http.get(this.url+'/products',{responseType: 'text',withCredentials:true});
   }
 
   showEarring(id){
     return this.http.get(this.url+'/products/'+id,{responseType: 'text'});
   }
   getCartItems(id){
-    return this.http.get(this.url+'/'+id+'/cart',{responseType: 'text'});
+    return this.http.get(this.url+'/cart',{responseType: 'text',withCredentials:true});
+  }
+
+  addToCart(_id){
+    return this.http.post(this.url+'/cart',_id,{responseType: 'text',withCredentials:true});
+  }
+  removeFromCart(product){
+    return this.http.delete(this.url+'/'+product._id+'/removeCart',{withCredentials:true});
   }
 
 }
