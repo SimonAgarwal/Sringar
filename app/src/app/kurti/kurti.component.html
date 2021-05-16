@@ -10,7 +10,7 @@
          *ngFor="let product of products">
          <!--<div class="wishlist"><i class="fas fa-heart" (click)="wishlist()"></i></div>-->
          <div class="product-details d-flex justify-content-between">
-            <a href="#" [routerLink]="['/products/earring/'+product._id]"> <p class="product-name">{{product.name}}</p></a>
+            <a href="#" [routerLink]="['/products/earring/'+product._id]" class="link-product-name"> <p class="product-name">{{product.name}}</p></a>
              <p class="product-price">Rs.{{product.price}}</p>
             
         </div>

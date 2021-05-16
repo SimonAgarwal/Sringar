@@ -121,7 +121,13 @@ router.delete("/:id/removeCart",(req,res,next)=>{
                     res.send("login first");
                 }
                 else{
-                    user.cart.pull(product);
+                    //Remove only one element if same products added man times
+                    var arr=user.cart;
+                    var index=arr.indexOf(product._id);
+                    arr.splice(index, 1);
+                    console.log(arr);
+                   // user.cart.pull(product);
+                    user.cart=arr;
                     user.save();
                     res.send({success:"true",message:"Remove from Cart"});
                 }

@@ -109,12 +109,16 @@ button{
 }
 
 .product-name:hover{
-    font-size:27px;
+    
     color:black;
     text-decoration: none;
    
 
 }
+.link-product-name:hover{
+    text-decoration: underline black;
+}
+
 
 
 button:hover{
