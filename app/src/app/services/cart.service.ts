@@ -18,5 +18,16 @@ export class CartService {
       console.log(res);
     })
   }
-}
+  }
+
+  addToWishlist(product){
+    if(this.server.ActiveUser==undefined){
+      this.router.navigate(['/login']);
+    }
+    else{
+    this.server.addToWishlist(product).subscribe(res=>{
+      console.log(res);
+    })
+  }
+  }
 }

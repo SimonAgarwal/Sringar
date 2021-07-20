@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row d-flex justify-content-between">
+      <div class="col-12 col-md-4 col-sm-6 product d-flex justify-content-center" 
+         *ngFor="let product of WishlistItems">
+         <div class="product-details d-flex justify-content-between">
+            <a href="#" [routerLink]="['/products/earring/'+product._id]" class="link-product-name"> <p class="product-name">{{product.name}}</p></a>
+             <p class="product-price">Rs.{{product.price}}</p>
+            
+        </div>
+        <div class="showBtn">
+            <button class="btn btn-light border p-0 mt-4" (click)="moveToCart(product)"><p class="btn-text pt-2">MOVE TO CART <i class="fas fa-shopping-cart"></i></p></button>
+        </div>
+        <div class="showBtn">
+            <button style="top:55%" class="btn btn-light border p-0 mt-4" (click)="removeFromWishlist(product)"><p class="btn-text pt-2">REMOVE FROM WISHLIST</p></button>
+        </div>
+       
+        
+        <a [routerLink]="['/products/earring/'+product._id]">
+        <div class="bg-image" [ngStyle]="{'background-image':'url('+product.image+')','background-size':'300px 340px','background-repeat': 'no-repeat','background-position': 'center','width':'320px'}"></div>
+            </a>
+        
+        </div>
+</div>
+  
+   
+</div>
+
+<app-footer></app-footer>

@@ -101,7 +101,7 @@ router.get('/products/:id',(req,res,next)=>{
     })
 })
 
-
+//delete cart item
 router.delete("/:id/removeCart",(req,res,next)=>{
     var product= {
         _id:req.params.id,
@@ -130,6 +130,101 @@ router.delete("/:id/removeCart",(req,res,next)=>{
                     user.cart=arr;
                     user.save();
                     res.send({success:"true",message:"Remove from Cart"});
+                }
+            })
+
+        }
+        else{
+            console.log("product not")
+            res.json({sucess:false,message:"Product could not be removed"})
+        }
+    })
+
+})
+
+//wishlist
+
+//add item in wishlist
+
+router.post("/wishlist",(req,res,next)=>{
+    var product= {
+        _id:req.body._id,
+        }
+console.log(product._id)
+
+    products.findOne({_id:product._id},(err,product)=>{
+        if(err){
+            console.log(err)
+            res.json({sucess:false,message:"Product could not be added to wishlist"})
+        }
+        else if(product){
+            User.findOne({_id:req.user._id},(error,user)=>{
+                if(error){
+                    res.send({message:"error"});
+                }
+                if(!user){
+                    res.send("login first");
+                }
+                else{
+                    user.wishlist.push(product);
+                    user.save();
+                    res.send({success:"true",message:"Added to Wishlist"});
+                }
+            })
+
+        }
+        else{
+            console.log("Product not found")
+            res.json({sucess:false,message:"Product could not be added"})
+        }
+    })
+})
+
+router.get("/wishlist",(req,res,next)=>{
+    id=req.params.id;
+    console.log(id);
+    
+User.findOne({_id:req.user._id}).populate('wishlist').exec((err,user)=>{
+    if(err){
+        res.send(err);
+    }
+    else{
+        console.log(user.wishlist);
+        res.send(user.wishlist);
+    }
+})
+
+})
+
+//delete wishlist item
+router.delete("/:id/removeWishlist",(req,res,next)=>{
+    var product= {
+        _id:req.params.id,
+        }
+
+    products.findOne({_id:product._id},(err,product)=>{
+        if(err){
+            console.log(err);
+            res.json({sucess:false,message:"Product could not be removed"})
+        }
+        else if(product){
+            User.findOne({_id:req.user.id},(error,user)=>{
+                if(error){
+                    res.send({message:"error"});
+                }
+                if(!user){
+                    res.send("login first");
+                }
+                else{
+                    //Remove only one element if same products added man times
+                    var arr=user.wishlist;
+                    var index=arr.indexOf(product._id);
+                    arr.splice(index, 1);
+                    console.log(arr);
+                   // user.cart.pull(product);
+                    user.wishlist=arr;
+                    user.save();
+                    res.send({success:"true",message:"Remove from Wishlist"});
                 }
             })
 

@@ -36,9 +36,17 @@ this.server.logout().subscribe(res=>{
 
 }
 userCart(){
-  
   if(this.server.ActiveUser){
     this.router.navigate(['/'+this.server.ActiveUser._id+'/cart'])
+  }
+  else{
+    this.router.navigate(['/login']);
+  }
+
+}
+userWishlist(){
+  if(this.server.ActiveUser){
+    this.router.navigate(['/'+this.server.ActiveUser._id+'/wishlist'])
   }
   else{
     this.router.navigate(['/login']);

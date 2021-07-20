@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ShowProductComponent } from './show-product/show-product.component';
 import { CartComponent } from './cart/cart.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { CartComponent } from './cart/cart.component';
     RegisterComponent,
     ShowProductComponent,
     CartComponent,
+    WishlistComponent,
    ],
   imports: [
     BrowserModule,

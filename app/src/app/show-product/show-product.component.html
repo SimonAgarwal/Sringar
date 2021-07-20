@@ -17,7 +17,7 @@
             In Stock.
          </div>
          <div class="product-buttons d-flex justify-content-between">
-            <button class="btn btn-dark">ADD TO WISHLIST  <i class="fas fa-heart mt-1"></i></button>
+            <button class="btn btn-dark" (click)="cart.addToWishlist(earring)">ADD TO WISHLIST  <i class="fas fa-heart mt-1"></i></button>
             <button class="btn btn-dark cart" (click)="cart.addToCart(earring)">ADD TO CART <i class="fas fa-shopping-cart"></i></button>
          </div>
       </div>

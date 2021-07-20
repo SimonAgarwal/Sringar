@@ -39,8 +39,18 @@ export class ServerService {
   addToCart(_id){
     return this.http.post(this.url+'/cart',_id,{responseType: 'text',withCredentials:true});
   }
+  addToWishlist(_id){
+    return this.http.post(this.url+'/wishlist',_id,{responseType: 'text',withCredentials:true});
+  }
+  getWishlistItems(id){
+    return this.http.get(this.url+'/wishlist',{responseType: 'text',withCredentials:true});
+  }
+  
   removeFromCart(product){
     return this.http.delete(this.url+'/'+product._id+'/removeCart',{withCredentials:true});
+  }
+  removeFromWishlist(product){
+    return this.http.delete(this.url+'/'+product._id+'/removeWishlist',{withCredentials:true});
   }
 
 }
