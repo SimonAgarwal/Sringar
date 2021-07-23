@@ -18,6 +18,8 @@ const userSchema=mongoose.Schema({
         type:String,
         required:true
     },
+    resetToken:String,
+    expireToken:Date,
     cart:[
         {
 			type:mongoose.Schema.Types.ObjectId,

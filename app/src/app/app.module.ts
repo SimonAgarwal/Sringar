@@ -14,6 +14,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { ShowProductComponent } from './show-product/show-product.component';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { SetPasswordComponent } from './set-password/set-password.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     ShowProductComponent,
     CartComponent,
     WishlistComponent,
+    ResetPasswordComponent,
+    SetPasswordComponent,
    ],
   imports: [
     BrowserModule,

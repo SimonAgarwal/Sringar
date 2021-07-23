@@ -4,6 +4,19 @@ const router=express.Router();
 const passport=require('passport');
 const middleware=require('../middleware/index')
 const User=require('../models/users');
+const nodemailer=require('nodemailer');
+var bcrypt=require("bcryptjs");
+const crypto=require('crypto');
+//nodemailer config
+
+var transport=nodemailer.createTransport({
+	service:'gmail',
+	auth:{
+	  user:'simonagarwal0906@gmail.com',
+	pass:'Simon@123$'
+  }
+  })
+
 
 //register
 router.post('/register',(req,res,next)=>{
@@ -64,6 +77,78 @@ router.post('/login', function(req, res, next) {
 
 //middleware
 
+//reset password
+router.post('/resetPassword',function(req,res,next){
+  var email=req.body.email;
+  console.log("email is:"+email);
+  //generate token
+  crypto.randomBytes(32,(err,buffer)=>{
+    if(err){
+      console.log(err);
+    }
+    else{
+      const token=buffer.toString("hex");
+      User.findOne({email:email},(err,user)=>{
+        if(err){
+          res.send({success:false,message:'Something went wrong!'});
+        }
+        else if(!user){
+          res.send(({success:false,message:'User not found'}))
+        }
+        else{
+          user.resetToken=token;
+          user.expireToken=Date.now() + 3600000;
+          user.save().then((result)=>{
+            console.log(token)
+            var mailOptions={
+              from:'simonagarwal0906@gmailcom',
+              to:user.email,
+              subject:'Sringar Reset Password',
+              html:`<h4>Click on the <a href="http://localhost:4200/setPassword/${user.resetToken}">link</a> to reset your password</h4>`
+            }
+            transport.sendMail(mailOptions,function(err,info){
+              if(err){
+                console.log(err);
+               res.send({success:false,message:'Something went wrong'})
+              }
+              else{
+                console.log("Email sent");
+                res.send({success:true,message:'Please check your e-mail inbox.Do check your spam and promotions inbox!'})
+              }
+            })
+          })
+         
+        }
+      })
+    }
+  })
+  
+  
+})
+
+//set new password
+router.post('/setPassword',function(req,res,next){
+  var user={
+    password:req.body.password,
+    token:req.body.token
+  }
+  User.findOne({resetToken:user.token,expireToken:{$gt:Date.now()}}).then(foundUser=>{
+    if(!foundUser){
+      return res.send({success:false,message:'Session Expired!Please try again.'})
+    }
+    bcrypt.genSalt(10,(err,salt)=>{
+      bcrypt.hash(user.password,salt,(err,hash)=>{
+          if(err) throw err;
+          foundUser.password=hash;
+          foundUser.resetToken=undefined;
+          foundUser.expireToken=undefined
+          foundUser.save().then((updated=>{
+            res.send({success:true,message:'Password Updated Successfully'})
+          }));
+      })
+      })
+  })
+})
 
 
 module.exports=router;

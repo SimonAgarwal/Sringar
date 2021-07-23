@@ -52,6 +52,12 @@ export class ServerService {
   removeFromWishlist(product){
     return this.http.delete(this.url+'/'+product._id+'/removeWishlist',{withCredentials:true});
   }
+  reset(email){
+    return this.http.post(this.url+'/resetPassword',email,{responseType: 'text',withCredentials:true});
+}
+setPassword(user){
+  return this.http.post(this.url+'/setPassword',user,{responseType: 'text',withCredentials:true});
+}
 
 }
 
