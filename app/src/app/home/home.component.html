@@ -28,7 +28,8 @@
 <div class="container">
 
     <h3 data-aos="fade-up">Products</h3>
-    <div class="row d-flex justify-content-center">
+    <div class="row">
+    <div class="row d-flex justify-content-center col-md-3">
         <a [routerLink]="['/products/earring']">
             <div class="product d-flex justify-content-center align-items-center" data-aos="zoom-in">
 
@@ -39,6 +40,45 @@
             </div>
         </a>
 
+    </div>
+    <div class="row d-flex justify-content-center col-md-3" id="ring">
+        <a [routerLink]="['/products/ring']">
+            <div class="product ring d-flex justify-content-center align-items-center" data-aos="zoom-in">
+
+                <div class="earring d-flex justify-content-center align-items-center">
+                    <p>RINGS</p>
+                </div>
+
+            </div>
+        </a>
+
+    </div>
+    <!--Neckpiece-->
+    <div class="row d-flex justify-content-center col-md-3" id="ring">
+        <a [routerLink]="['/products/neckpiece']">
+            <div class="product neck d-flex justify-content-center align-items-center" data-aos="zoom-in">
+
+                <div class="earring d-flex justify-content-center align-items-center">
+                    <p>NECKPIECES</p>
+                </div>
+
+            </div>
+        </a>
+
+    </div>
+    <!--Bracelet-->
+    <div class="row d-flex justify-content-center col-md-3" id="ring">
+        <a [routerLink]="['/products/bracelet']">
+            <div class="product bracelet d-flex justify-content-center align-items-center" data-aos="zoom-in">
+
+                <div class="earring d-flex justify-content-center align-items-center">
+                    <p>BRACELETS</p>
+                </div>
+
+            </div>
+        </a>
+
+    </div>
     </div>
     <hr>
 
@@ -55,7 +95,7 @@
     </div>
 
    
-    
+
    
 </div>
 

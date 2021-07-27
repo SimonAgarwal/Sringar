@@ -26,7 +26,10 @@ export class ServerService {
   }
 
   earrings(){
-    return this.http.get(this.url+'/products',{responseType: 'text',withCredentials:true});
+    return this.http.get(this.url+'/products/earrings',{responseType: 'text',withCredentials:true});
+  }
+  rings(){
+    return this.http.get(this.url+'/products/rings',{responseType: 'text',withCredentials:true});
   }
 
   showEarring(id){

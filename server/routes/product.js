@@ -5,9 +5,9 @@ const products=require('../models/products');
 const User=require('../models/users');
 const middleware=require('../middleware/index')
 
-//get products
-router.get('/products',(req,res,next)=>{
-   products.find({},(err,products)=>{
+//get earrings
+router.get('/products/earrings',(req,res,next)=>{
+   products.find({category:'earrings'},(err,products)=>{
        if(err){
            res.send({msg:"Something went wrong",products:null});
        }
@@ -17,6 +17,20 @@ router.get('/products',(req,res,next)=>{
        }
    })
 })
+
+//get rings
+router.get('/products/rings',(req,res,next)=>{
+    products.find({category:'ring'},(err,products)=>{
+        if(err){
+            res.send({msg:"Something went wrong",products:null});
+        }
+        else{
+           console.log(req.user)
+            res.send({msg:"Found",products:products,user:req.user})
+        }
+    })
+ })
+
 
 //add item in cart
 

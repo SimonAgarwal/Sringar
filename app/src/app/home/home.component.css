@@ -168,6 +168,18 @@ div.images{
   
    background-image:url('../../assets/earring2.jpg')
   }
+  .product.ring{
+    background-image:url('../../assets/ringHome.jpg');
+    background-size:cover
+  }
+  .product.neck{
+    background-image:url('../../assets/neck2.jpg');
+    background-size:cover
+  }
+  .product.bracelet{
+    background-image:url('../../assets/bracelet.jpg');
+    background-size:cover
+  }
   .container>h3{
     font-family: 'Dancing Script', cursive;
     text-align: center;
@@ -187,6 +199,9 @@ div.images{
       margin-bottom: 0px;
       font-size:20px;
       font-weight: 600;
+  }
+  .row{
+    width:100vw
   }
   
   

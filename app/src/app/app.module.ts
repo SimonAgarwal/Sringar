@@ -17,7 +17,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SetPasswordComponent } from './set-password/set-password.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RingComponent } from './ring/ring.component'
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     WishlistComponent,
     ResetPasswordComponent,
     SetPasswordComponent,
+    RingComponent,
    
    ],
   imports: [

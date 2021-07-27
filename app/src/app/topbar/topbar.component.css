@@ -1,6 +1,10 @@
 .nav{
+   
     height:40px;
-  
+   
+}
+nav#nav.navbar.navbar-expand-lg.navbar-dark.color{
+    background-color: #191a19;
 }
 #logo{
     height:60px;
