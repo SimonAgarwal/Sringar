@@ -31,6 +31,32 @@ router.get('/products/rings',(req,res,next)=>{
     })
  })
 
+ //get necklace
+router.get('/products/necklaces',(req,res,next)=>{
+    products.find({category:'necklace'},(err,products)=>{
+        if(err){
+            res.send({msg:"Something went wrong",products:null});
+        }
+        else{
+           console.log(req.user)
+            res.send({msg:"Found",products:products,user:req.user})
+        }
+    })
+ })
+
+ //get bracelet
+router.get('/products/bracelets',(req,res,next)=>{
+    products.find({category:'bracelet'},(err,products)=>{
+        if(err){
+            res.send({msg:"Something went wrong",products:null});
+        }
+        else{
+           console.log(req.user)
+            res.send({msg:"Found",products:products,user:req.user})
+        }
+    })
+ })
+
 
 //add item in cart
 

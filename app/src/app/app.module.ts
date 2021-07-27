@@ -18,7 +18,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { SetPasswordComponent } from './set-password/set-password.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { RingComponent } from './ring/ring.component'
+import { RingComponent } from './ring/ring.component';
+import { NecklaceComponent } from './necklace/necklace.component';
+import { BraceletComponent } from './bracelet/bracelet.component'
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { RingComponent } from './ring/ring.component'
     ResetPasswordComponent,
     SetPasswordComponent,
     RingComponent,
+    NecklaceComponent,
+    BraceletComponent,
    
    ],
   imports: [

@@ -31,6 +31,12 @@ export class ServerService {
   rings(){
     return this.http.get(this.url+'/products/rings',{responseType: 'text',withCredentials:true});
   }
+  necklaces(){
+    return this.http.get(this.url+'/products/necklaces',{responseType: 'text',withCredentials:true});
+  }
+  bracelets(){
+    return this.http.get(this.url+'/products/bracelets',{responseType: 'text',withCredentials:true});
+  }
 
   showEarring(id){
     return this.http.get(this.url+'/products/'+id,{responseType: 'text'});

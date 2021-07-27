@@ -12,6 +12,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SetPasswordComponent } from './set-password/set-password.component';
 import {RingComponent} from './ring/ring.component'
+import { NecklaceComponent } from './necklace/necklace.component';
+import { BraceletComponent } from './bracelet/bracelet.component';
 const routes: Routes = [{path: '', redirectTo: "/home",pathMatch: 'full'},
                         {path:'home',component:HomeComponent},
                         {path:'products/earring',component:KurtiComponent,},
@@ -22,7 +24,9 @@ const routes: Routes = [{path: '', redirectTo: "/home",pathMatch: 'full'},
                         {path:':id/wishlist',component:WishlistComponent,canActivate:[AuthGuard]},
                         {path:'resetPassword',component:ResetPasswordComponent},
                         {path:'setPassword/:token',component:SetPasswordComponent},
-                        {path:'products/ring',component:RingComponent}
+                        {path:'products/ring',component:RingComponent},
+                        {path:'products/neckpiece',component:NecklaceComponent},
+                        {path:'products/bracelet',component:BraceletComponent}
                       ];
                         //canActivate:[AuthGuard] to apply guard
 

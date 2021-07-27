@@ -16,7 +16,7 @@
         <div *ngFor="let cart of cartItems" >
             <div class="item">
                 <div class="row">
-                <div class="col-md-4"><img [src]="cart.image"></div>
+               <div class="col-md-4"><a [routerLink]="['/products/earring/'+cart._id]"><img [src]="cart.image"></a></div>
                 <div class="col-md-5">
                     <div>{{cart.name}}
                         <div class="buttons d-flex justify-content-between">
