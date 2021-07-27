@@ -1,4 +1,12 @@
 <div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="empty d-flex justify-content-center" *ngIf="isEmpty">
+            <div>
+                <p>Your Wishlist Is Empty</p>
+                <button class="btn btn-dark emptyWish" [routerLink]="['/products/earring']">CONTINUE SHOPPING</button>
+            </div>
+        </div>
+    </div>
     <div class="row d-flex justify-content-between">
       <div class="col-12 col-md-4 col-sm-6 product d-flex justify-content-center" 
          *ngFor="let product of WishlistItems">
@@ -24,5 +32,6 @@
   
    
 </div>
+<simple-notifications></simple-notifications>
 
 <app-footer></app-footer>

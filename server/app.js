@@ -24,12 +24,20 @@ app.use(cors({
 	origin:['http://localhost:4200'],
 	credentials:true
 }));
-app.use(bodyParser.json());
+
 app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(require("express-session")({
+	name:'myname.sid',
 	secret:"Anything",
 	resave:false,
-	saveUninitialized:false
+	saveUninitialized:false,
+	cookie:{
+		maxAge:36000000,
+		httpOnly:false,
+		secure:false
+	}
+	
 	}));
 
 	require('./config/passport');
@@ -40,11 +48,7 @@ app.use(passport.session({
 	resave:false,
 	saveUninitialized:false,
 	secret:'simon',
-	cookie:{
-		maxAge:36000000,
-		httpOnly:false,
-		secure:false
-	}
+	
 }));
 
 

@@ -12,7 +12,7 @@ router.get('/products',(req,res,next)=>{
            res.send({msg:"Something went wrong",products:null});
        }
        else{
-           console.log(products);
+          console.log(req.user)
            res.send({msg:"Found",products:products,user:req.user})
        }
    })
@@ -24,8 +24,9 @@ router.post("/cart",(req,res,next)=>{
     var product= {
         _id:req.body._id,
         }
-console.log(product._id)
 
+
+console.log(req.user)
     products.findOne({_id:product._id},(err,product)=>{
         if(err){
             console.log(err)
@@ -224,7 +225,7 @@ router.delete("/:id/removeWishlist",(req,res,next)=>{
                    // user.cart.pull(product);
                     user.wishlist=arr;
                     user.save();
-                    res.send({success:"true",message:"Remove from Wishlist"});
+                    res.send({success:"true",message:"Removed from Wishlist"});
                 }
             })
 

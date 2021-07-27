@@ -7,7 +7,7 @@
     
         
          <div class="col-12 col-md-4 col-sm-6 product d-flex justify-content-center" 
-         *ngFor="let product of products">
+         *ngFor="let product of products" data-aos="zoom-in">
          <!--<div class="wishlist"><i class="fas fa-heart" (click)="wishlist()"></i></div>-->
          <div class="product-details d-flex justify-content-between">
             <a href="#" [routerLink]="['/products/earring/'+product._id]" class="link-product-name"> <p class="product-name">{{product.name}}</p></a>
@@ -16,10 +16,10 @@
         </div>
          
         <div class="showBtn">
-            <button class="btn btn-light border p-0 mt-4" (click)="cart.addToCart(product)"><p class="btn-text pt-2">ADD TO CART <i class="fas fa-shopping-cart"></i></p></button>
+            <button class="btn btn-light border p-0 mt-4" (click)="addToCart(product)"><p class="btn-text pt-2">ADD TO CART <i class="fas fa-shopping-cart"></i></p></button>
         </div>
         <div class="showBtn">
-            <button style="top:55%" class="btn btn-light border p-0 mt-4" (click)="cart.addToWishlist(product)"><p class="btn-text pt-2">ADD TO WISHLIST <i class="fas fa-heart mt-1"></i></p></button>
+            <button style="top:55%" class="btn btn-light border p-0 mt-4" (click)="addToWishlist(product)"><p class="btn-text pt-2">ADD TO WISHLIST <i class="fas fa-heart mt-1"></i></p></button>
         </div>
         
         <a [routerLink]="['/products/earring/'+product._id]">
@@ -31,5 +31,5 @@
   
    
 </div>
-
+<simple-notifications></simple-notifications>
 <app-footer></app-footer>

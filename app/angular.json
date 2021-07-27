@@ -24,9 +24,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "../app/node_modules/aos/dist/aos.css"
             ],
-            "scripts": []
+            "scripts": ["../app/node_modules/aos/dist/aos.js"]
           },
           "configurations": {
             "production": {

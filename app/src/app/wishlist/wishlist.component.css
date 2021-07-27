@@ -160,3 +160,30 @@ button:hover{
 .iconWish{
     fill: red;
 }
+
+.empty{
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: 25px;
+    margin-top: 6%;
+    background-color: #dedede;
+    text-align: center;
+}
+
+
+.empty>div{
+    width:300px;
+    height: 150px;
+    padding-top: 30px;
+}
+
+button.emptyWish{
+    position: absolute;
+    top: 46%;
+    /*left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;*/
+    width: 14%;
+    padding: 0px;
+    text-align: center;
+    height:7%;
+}

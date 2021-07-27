@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
 import { Router,ActivatedRoute, Params } from '@angular/router';
-
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +18,7 @@ cartItems=[];
 cartAmount:number=0;
 delivery:number=0;
 totalAmount;
-  constructor(public server:ServerService,private router:Router,private activatedRoute: ActivatedRoute) { }
+  constructor(public server:ServerService,private router:Router,private activatedRoute: ActivatedRoute,private notification:NotificationsService) { }
 
   ngOnInit(): void {
     this.ActiveUser=this.server.ActiveUser;
@@ -64,10 +64,29 @@ for(let i=0;i<this.cartItems.length;i++)
     else{
     this.server.removeFromCart(product).subscribe(res=>{
       console.log(res);
-     
+     this.response=res;
+     if(this.response.success==false){
+      this.notification.error('Error',this.response.message,{
+        timeOut:1000,
+        animate:'fade',
+        showProgressBar:true
+      })
+
+     }
+     else{
       this.cartAmount=this.cartAmount-product.price;
      this.totalAmount=this.totalAmount-product.price;
-     this.ngOnInit();
+     this.notification.success('Success',this.response.message,{
+      timeOut:700,
+      animate:'fade',
+      showProgressBar:true
+    })
+    setTimeout(()=>{
+      this.ngOnInit();
+    },700)
+     
+     }
+      
      
      
     })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{users} from '../users';
 import { ServerService } from '../services/server.service';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   } 
   response;
 
-  constructor(private server:ServerService,private router:Router) { }
+  constructor(private server:ServerService,private router:Router,private notification:NotificationsService) { }
 
   ngOnInit(): void {
     this.server.ActiveUser=undefined;
@@ -32,13 +33,27 @@ export class LoginComponent implements OnInit {
       console.log( typeof(this.response));
       if(this.response.success==true){
         console.log("You Are Logged In");
+        this.notification.success('Success',this.response.message,{
+          timeOut:500,
+          animate:'fade',
+          showProgressBar:true
+        })
+        setTimeout(()=>{
+          this.router.navigate(['/products/earring']);
+        },500)
+      
         this.server.isAuth=true;
         this.server.ActiveUser=this.response.user;
         console.log(this.server.ActiveUser)
-        this.router.navigate(['/products/earring']);
+        
       }
       else{
-        alert("Something went wrong !try again")
+        console.log(this.response.message)
+        this.notification.error('Error',this.response.message,{
+          timeOut:2000,
+          animate:'fade',
+          showProgressBar:true
+        })
         console.log("failed")
       }
     })

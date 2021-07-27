@@ -30,20 +30,20 @@ router.post('/register',(req,res,next)=>{
      //check if username already exist
     User.findOne({username:newUser.username},(err,founduser)=>{
         if(err){
-            return res.json({success:false,msg:'Something went wrong'});
+            return res.json({success:false,message:'Something went wrong'});
         }
       else if(founduser){
-          return res.json({success:false,msg:'Username already exists'});
+          return res.json({success:false,message:'Username already exists'});
       }
       //if not add user
     else{
         User.addUser(newUser,(err,user)=>{
        if(err){
-                   res.json({success:false,msg:'Failed To Register'});
+                   res.json({success:false,message:'Failed To Register'});
                }
                else{
                   console.log(user);
-                        res.json({success:true,msg:'Registered'});
+                        res.json({success:true,message:'Registered!Kindly Login Now'});
                     }
         })
     
@@ -56,10 +56,10 @@ router.post('/register',(req,res,next)=>{
 router.post('/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
       if (err) { return res.send(err); }
-      if (!user) { return res.json({success:false,msg:'User Does Not Exist'}); }
+      if (!user) { return res.json({success:false,message:'Incorrect Password or Username'}); }
       req.logIn(user, function(err) {
         if (err) { return res.send(err); }
-        return res.json({success:true,msg:'You Are Logged in',user:user});
+        return res.json({success:true,message:'You Are Logged in',user:user});
       });
     })(req, res, next);
   });
@@ -70,9 +70,12 @@ router.post('/login', function(req, res, next) {
 
   })
 
-  router.get('/logout',middleware.isAuth,function(req,res,next){
+  router.get('/logout',function(req,res,next){
     req.logout();
-    return res.json({success:true,message:'logged out'});
+    
+    req.session.destroy(function(err){
+      res.send({success:true,message:'Logged out'})
+    })
   })
 
 //middleware

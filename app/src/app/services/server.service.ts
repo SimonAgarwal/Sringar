@@ -9,12 +9,12 @@ import{users} from '../users';
 export class ServerService {
   url='http://localhost:3000';
   isAuth:boolean=false;
-  ActiveUser;
+  ActiveUser=undefined;
 
   constructor(private http:HttpClient) { }
 
   register(user:users){
-    return this.http.post(this.url+'/register',user,{responseType: 'text'});
+    return this.http.post(this.url+'/register',user,{responseType: 'text',withCredentials:true,observe:'body',headers:new HttpHeaders().append('Content-Type','application/json')});
   }
 
   login(user:users){
@@ -22,7 +22,7 @@ export class ServerService {
   }
 
   logout(){
-    return this.http.get(this.url+'/logout',{responseType: 'text'});
+    return this.http.get(this.url+'/logout',{responseType: 'text',withCredentials:true});
   }
 
   earrings(){
